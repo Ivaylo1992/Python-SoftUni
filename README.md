@@ -80,6 +80,7 @@ Python-SoftUni/
 │   └── ...
 └── README.md
 
+```
 
 Each folder represents a module in the SoftUni curriculum and contains the exercises, homework, and exams for that topic.
 
