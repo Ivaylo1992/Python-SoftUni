@@ -1,5 +1,8 @@
 .venv/
 
+#test file
+python_advanced/lab/functions_advance/solve.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
