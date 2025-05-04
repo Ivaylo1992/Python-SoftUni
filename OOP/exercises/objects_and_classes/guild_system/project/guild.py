@@ -10,7 +10,7 @@ class Guild:
         if p.guild == self.name:
             return f"Player {p.name} is already in the guild."
 
-        if player.guild != 'Unaffiliated':
+        if p.guild != 'Unaffiliated':
             return f"Player {p.name} is in another guild."
 
         self.players.append(p)
@@ -22,7 +22,7 @@ class Guild:
             if p.name == player_name:
                 self.players.remove(p)
                 p.guild = 'Unaffiliated'
-                return f"Player {player_name} has been kicked from the guild."
+                return f"Player {player_name} has been removed from the guild."
 
         return f"Player {player_name} is not in the guild."
 
