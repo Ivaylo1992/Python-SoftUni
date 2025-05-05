@@ -1,4 +1,4 @@
-from project.animal import Animal
+from OOP.lab.inheritance.hierarchical_inheritance.project.animal import Animal
 
 
 class Dog(Animal):
