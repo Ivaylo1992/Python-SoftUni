@@ -1,4 +1,4 @@
-from OOP.exercises.pokemon_battle.project.pokemon import Pokemon
+from OOP.exercises.first_step_in_OOP.pokemon_battle.project.pokemon import Pokemon
 
 
 class Trainer:
