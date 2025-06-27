@@ -1,45 +1,52 @@
-from OOP.exercises.polymorphism_and_abstraction.wild_farm.project.animals.animal import Mammal
-from OOP.exercises.polymorphism_and_abstraction.wild_farm.project.food import Fruit, Vegetable, Meat
+from project.animals.animal import Mammal
+from project.food import Fruit, Vegetable, Meat
 
 
 class Mouse(Mammal):
     def make_sound(self):
         return "Squeak"
 
-    def feed(self, food):
-        if not isinstance(food, Fruit) or not isinstance(food, Vegetable):
-            return f"{self.__class__.__name__} does not eat {food.__class__.__name__}!"
-        self.food_eaten += food.quantity
-        self.weight += 0.10 * food.quantity
+    @property
+    def what_eats(self):
+        return [Vegetable, Fruit]
+
+    @property
+    def gained_weight(self):
+        return 0.10
 
 
 class Dog(Mammal):
     def make_sound(self):
         return "Woof!"
 
-    def feed(self, food):
-        if not isinstance(food, Meat):
-            return f"{self.__class__.__name__} does not eat {food.__class__.__name__}!"
-        self.food_eaten += food.quantity
-        self.weight += 0.40 * food.quantity
+    @property
+    def what_eats(self):
+        return [Meat]
 
+    @property
+    def gained_weight(self):
+        return 0.40
 
 class Cat(Mammal):
     def make_sound(self):
-        return "Meow!"
+        return "Meow"
 
-    def feed(self, food):
-        if not isinstance(food, Meat) or not isinstance(food, Vegetable):
-            return f"{self.__class__.__name__} does not eat {food.__class__.__name__}!"
-        self.food_eaten += food.quantity
-        self.weight += 0.30 * food.quantity
+    @property
+    def what_eats(self):
+        return [Meat, Vegetable]
+
+    @property
+    def gained_weight(self):
+        return 0.30
 
 class Tiger(Mammal):
     def make_sound(self):
         return "ROAR!!!"
 
-    def feed(self, food):
-        if not isinstance(food, Meat):
-            return f"{self.__class__.__name__} does not eat {food.__class__.__name__}!"
-        self.food_eaten += food.quantity
-        self.weight += 1 * food.quantity
+    @property
+    def what_eats(self):
+        return [Meat]
+
+    @property
+    def gained_weight(self):
+        return 1
