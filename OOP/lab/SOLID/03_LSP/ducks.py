@@ -1,10 +1,12 @@
 from abc import abstractmethod, ABC
 
+
 class SquizableToy(ABC):
     @staticmethod
     @abstractmethod
     def make_sound(self):
         pass
+
 
 class Duck(ABC):
 

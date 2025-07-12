@@ -15,9 +15,11 @@ class HdmiConnectionMixin:
     def connect_to_device_via_hdmi_cable(self, device):
         pass
 
+
 class RcaConnectionMixin:
     def connect_to_device_via_rca_cable(self, device):
         pass
+
 
 class EthernetConnectionMixin:
     def connect_to_device_via_ethernet_cable(self, device):
@@ -48,7 +50,7 @@ class DVDPlayer(HdmiConnectionMixin, PowerOutletConnectionMixin):
         self.connect_device_to_power_outlet(self)
 
 
-class GameConsole(HdmiConnectionMixin, EthernetConnectionMixin ,PowerOutletConnectionMixin):
+class GameConsole(HdmiConnectionMixin, EthernetConnectionMixin, PowerOutletConnectionMixin):
     def connect_to_tv(self, television):
         self.connect_to_device_via_hdmi_cable(television)
 
