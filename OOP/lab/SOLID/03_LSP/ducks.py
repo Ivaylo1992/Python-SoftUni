@@ -1,34 +1,33 @@
 from abc import abstractmethod, ABC
 
+class SquizableToy(ABC):
+    @staticmethod
+    @abstractmethod
+    def make_sound(self):
+        pass
 
 class Duck(ABC):
+
     @staticmethod
+    @abstractmethod
     def quack():
         pass
 
     @staticmethod
+    @abstractmethod
     def walk():
         pass
 
     @staticmethod
+    @abstractmethod
     def fly():
         pass
 
 
-class RubberDuck(Duck):
+class RubberDuck(SquizableToy):
     @staticmethod
-    def quack():
+    def make_sound(self):
         return "Squeek"
-
-    @staticmethod
-    def walk():
-        """Rubber duck can walk only if you move it"""
-        raise Exception('I cannot walk by myself')
-
-    @staticmethod
-    def fly():
-        """Rubber duck can fly only if you throw it"""
-        raise Exception('I cannot fly by myself')
 
 
 class RobotDuck(Duck):
@@ -48,14 +47,10 @@ class RobotDuck(Duck):
     def fly(self):
         """can only fly to specific height but
         when it reaches it starts landing automatically"""
-        if self.height == RobotDuck.HEIGHT:
+        if self.height == self.HEIGHT:
             self.land()
         else:
             self.height += 1
 
     def land(self):
         self.height = 0
-
-
-
-
