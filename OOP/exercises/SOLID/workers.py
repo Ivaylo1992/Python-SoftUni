@@ -1,31 +1,35 @@
-class Worker:
+from abc import ABC, abstractmethod
 
+class BaseWorker(ABC):
+    @abstractmethod
     def work(self):
-        print("I'm working!!")
+        pass
+
+
+class NormalWorker(BaseWorker):
+    def work(self):
+        print("I'm working!")
+
+
+class SuperWorker(BaseWorker):
+    def work(self):
+        print("I'm working very hard!")
 
 
 class Manager:
-
     def __init__(self):
         self.worker = None
 
-    def set_worker(self, worker):
-        assert isinstance(worker, Worker), '`worker` must be of type {}'.format(Worker)
-
-        self.worker = worker
+    def set_worker(self, assign_worker: BaseWorker):
+        assert isinstance(worker, BaseWorker), '`worker` must be of type {}'.format(BaseWorker)
+        self.worker = assign_worker
 
     def manage(self):
         if self.worker is not None:
             self.worker.work()
 
-class SuperWorker:
 
-    def work(self):
-        print("I work very hard!!!")
-
-
-
-worker = Worker()
+worker = NormalWorker()
 manager = Manager()
 manager.set_worker(worker)
 manager.manage()
